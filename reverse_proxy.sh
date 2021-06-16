@@ -140,7 +140,8 @@ cat >> /etc/nginx/sites-available/$domain.conf <<CONF_3
      ssl_dhparam /etc/ssl/certs/dhparam.pem;
      ssl_session_timeout 10m;
      ssl_session_cache shared:SSL:10m;
-     add_header X-Frame-Options DENY;
+     add_header X-Frame-Options "SAMEORIGIN" always;
+     add_header Referrer-Policy same-origin;
      add_header X-Content-Type-Options nosniff;
      add_header X-XSS-Protection "1; mode=block";
 
